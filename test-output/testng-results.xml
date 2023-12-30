@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-30T15:07:31 IST" name="Default suite" finished-at="2023-12-30T15:07:32 IST" duration-ms="1242">
+    <groups>
+    </groups>
+    <test started-at="2023-12-30T15:07:31 IST" name="Default test" finished-at="2023-12-30T15:07:32 IST" duration-ms="1242">
+      <class name="gridSetup.SeleniumGridTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:gridSetup.SeleniumGridTest@36ebc363]" started-at="2023-12-30T15:07:30 IST" name="setUp" finished-at="2023-12-30T15:07:31 IST" duration-ms="1254" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testExample()[pri:0, instance:gridSetup.SeleniumGridTest@36ebc363]" started-at="2023-12-30T15:07:31 IST" name="testExample" finished-at="2023-12-30T15:07:32 IST" duration-ms="1211" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testExample -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:gridSetup.SeleniumGridTest@36ebc363]" started-at="2023-12-30T15:07:32 IST" name="tearDown" finished-at="2023-12-30T15:07:32 IST" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- gridSetup.SeleniumGridTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
