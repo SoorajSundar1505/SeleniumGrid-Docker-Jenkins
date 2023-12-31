@@ -1,93 +1,51 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>Selenium-Grid</groupId>
-  <artifactId>Selenium-Grid</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-		<plugin>
-      <groupId>org.codehaus.mojo</groupId>
-      <artifactId>exec-maven-plugin</artifactId>
-      <version>3.0.0</version>
-      <executions>
-        <execution>
-          <id>start-docker-desktop</id>
-          <phase>pre-integration-test</phase>
-          <goals>
-            <goal>exec</goal>
-          </goals>
-          <configuration>
-            <executable>powershell</executable>
-            <arguments>
-              <argument>-File</argument>
-              <argument>startDockerEngine.ps1</argument>
-            </arguments>
-          </configuration>
-        </execution>
-      </executions>
-    </plugin>
-    
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.1</version>
-        <configuration>
-          <release>18</release>
-        </configuration>
-      </plugin>
-      <plugin>
-		  <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.3</version>
-          <!-- <executions>
-                <execution>
-                    <id>start-selenium</id>
-                    <phase>pre-integration-test</phase>
-                    <goals>
-                        <goal>execute</goal>
-                    </goals>
-                    <configuration>
-                        <executable>java</executable>
-                        <arguments>
-                            <argument>-jar</argument>
-                            <argument>selenium-server-standalone-4.13.0.jar</argument>
-                            <argument>standalone</argument>
-                        </arguments>
-                        <background>true</background>
-                    </configuration>
-                </execution>
-            </executions>-->
-            <configuration>
-				<suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
-                  </suiteXmlFiles> 
-			</configuration>
-       </plugin>
-    </plugins>
-    
-    
-  </build>
-  
-  <dependencies>
-	  <dependency>
-	    <groupId>org.testng</groupId>
-	    <artifactId>testng</artifactId>
-	    <version>7.9.0</version>
-	    <scope>compile</scope>
-	</dependency>
-	
-	<dependency>
-	    <groupId>org.seleniumhq.selenium</groupId>
-	    <artifactId>selenium-java</artifactId>
-	    <version>4.16.1</version>
-	</dependency>
-	
-	<dependency>
-	    <groupId>com.github.docker-java</groupId>
-	    <artifactId>docker-java</artifactId>
-	    <version>3.3.4</version> <!-- Check for the latest version on Maven Central -->
-	</dependency>
-  </dependencies>
-  
-  
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Selenium-Grid</groupId>
+	<artifactId>Selenium-Grid</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.12.1</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.3</version>
+
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+					</suiteXmlFiles>
+					<!-- Run Maven Command   mvn test
+					test -DsuiteXmlFile=jenkins_docker_grid.xml -->
+					<!-- To run parallel test -DsuiteXmlFiles=login.xml,home.xml
+					-Dparallel=methods -DthreadCount=2-->
+					<!-- <parallel>methods</parallel>
+                <threadCount>2</threadCount>-->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.9.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.16.1</version>
+		</dependency>
+	</dependencies>
 </project>
+ 
