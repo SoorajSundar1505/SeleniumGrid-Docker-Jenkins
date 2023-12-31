@@ -1,5 +1,5 @@
  docker network create grid
- docker run -d -p 4442-4444:4442-4444 --net grid --name selenium-hub selenium/hub:latest
+ docker run -d -p 4442-4444:4442-4444 --net grid --name selenium-hub selenium-hub selenium/hub:4.16.1-20231219
  docker run -d --net grid -e SE_EVENT_BUS_HOST=selenium-hub `
     --shm-size="2g" `
     -e SE_EVENT_BUS_PUBLISH_PORT=4442 `
